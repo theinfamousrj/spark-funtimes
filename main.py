@@ -1,5 +1,5 @@
-# import spark libraries
-from pyspark.sql import SparkSession
+# Import spark libraries
+from pyspark.sql import SparkSession # type: ignore
 
 # Create a SparkSession
 spark = SparkSession.builder.appName("SparkFuntimes").getOrCreate()
