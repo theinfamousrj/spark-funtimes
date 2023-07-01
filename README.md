@@ -94,7 +94,7 @@ python3 main.py
 
 ### Coding
 
-[Read the docs](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html)
+First I went straight to the docs here: [Apache Spark + Parquet](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html). After that I messed with the code a little to get a `SELECT *` to work. After that I created a [reference file](reference.txt) so that I wouldn't have to swap back and forth in my `main.py` file a bunch. I know I could have used args to flip between SQL statements but it felt very unnecessary and would have bloated the code a little.
 
 ## But... why?
 
