@@ -96,6 +96,10 @@ python3 main.py
 
 First I went straight to the docs here: [Apache Spark + Parquet](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html). After that I messed with the code a little to get a `SELECT *` to work. After that I created a [reference file](reference.txt) so that I wouldn't have to swap back and forth in my `main.py` file a bunch. I know I could have used args to flip between SQL statements but it felt very unnecessary and would have bloated the code a little.
 
+As I was searching around for any percentile functions I came across `percentile` and `percentile_approx` in the [aggregate functions section](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-Built-inAggregateFunctions(UDAF)) for Hive. I dug around a little more and found that *typically* devs use the approximate in order to speed up ingestion and aggregation of large files. [More documentation around percentile_approx here](https://spark.apache.org/docs/3.4.1/api/python/reference/pyspark.sql/api/pyspark.sql.functions.percentile_approx.html#pyspark.sql.functions.percentile_approx) just for good measure.
+
+Apparently there isn't a whole bunch of difference between the two since `percentile_approx` defaults to the same functionality as `percentile` under 10k rows (default value) or whatever number you set as the `accuracy` parameter in the function call. Still, I wanted to play with both functions just for the fun of it, so I did.
+
 ## But... why?
 
 FOR FUN! And for an interview.
