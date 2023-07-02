@@ -4,8 +4,8 @@ import os
 
 # Set some sensible variables
 # We can change these to be parameters as well if we need to
-file_name = "yellow_tripdata_2023-01.parquet"
-file_size_limit = 1000000000 # in bytes aka 1GB here
+file_name = "yellow_tripdata_2023-01.parquet" # Current size: 47673370 bytes
+file_size_limit = 1000000000 # in bytes aka 1 gigabyte
 percentile = 0.90
 order_by = "trip_distance DESC"
 
