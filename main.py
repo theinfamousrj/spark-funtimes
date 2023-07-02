@@ -3,6 +3,7 @@ from pyspark.sql import SparkSession # type: ignore
 import os
 
 # Set some sensible variables
+# We can change these to be parameters as well if we need to
 file_name = "yellow_tripdata_2023-01.parquet"
 file_size_limit = 1000000000 # in bytes aka 1GB here
 percentile = 0.90
@@ -17,7 +18,7 @@ parquetFile = spark.read.parquet(file_name)
 # Let's also get the size of the file too, just in case
 file_size = os.path.getsize(file_name)
 
-# Parquet files can also be used to create a temporary view and then used in SQL statements.
+# Parquet files can also be used to create a temporary view (like in a traditional DB) and then used in SQL statements.
 parquetFile.createOrReplaceTempView("parquetFile")
 
 # Check the file size and if it is larger than file_size_limit (set above), we should to run an approximate
