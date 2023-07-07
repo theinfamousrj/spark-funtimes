@@ -2,6 +2,7 @@
 from pyspark.sql import SparkSession # type: ignore
 import os
 import argparse
+import time
 
 # Making a function to handle the processing of the file
 def process_file(input_file, output_path, file_size_limit=1000000000, accuracy=10000, percentile=0.90):
@@ -21,7 +22,7 @@ def process_file(input_file, output_path, file_size_limit=1000000000, accuracy=1
   # This will use the approximate percentile function instead of the exact one if the file is over 1GB
   if file_size > int(file_size_limit):
     print("File size is too large to run exact percentile")
-    print("Relative error of approximation: ", 1/accuracy)
+    print("Relative error of approximation: ", 1/int(accuracy))
     percentile_sql = "SELECT percentile_approx(trip_distance, " + str(percentile) + ", " + str(accuracy) + ") FROM parquet_file"
   else:
     print("File size is small enough to run exact percentile")
