@@ -78,18 +78,30 @@ And on Windows you can get there via `cmd` or `PowerShell` typing:
 cd %HOMEPATH%\Downloads\spark-funtimes
 ```
 
-### Installing PySpark
+### Installing dependencies
 
 Technically you can run this anywhere (after you install python), since it will install globally, but it makes sense to me to put it here. Run this in your `Terminal` or `cmd` or `PowerShell`:
 ```bash
-python3 -m pip install pyspark
+python3 -m pip install pyspark argparse
 ```
 
 ### Running the script
 
 All that's left is to run the script. Run this in your `Terminal` or `cmd` or `PowerShell`:
 ```bash
-python3 main.py
+python3 main.py -i path/to/your/file.parquet -o output/path/
+```
+
+If we want to get more detailed we can add any of the following optional parameters
+| Parameter | Alternate    | Description            |
+| --------- | ------------ | ---------------------- |
+| -s        | --size       | file size limit        |
+| -a        | --accuracy   | approximation accuracy |
+| -p        | --percentile | percentile             |
+
+As you can see in the example below:
+```bash
+python3 main.py -i path/to/your/file.parquet -o output/path/ -s 100000 -a 100 -p 0.85
 ```
 
 ### Coding

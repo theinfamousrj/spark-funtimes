@@ -13,4 +13,4 @@ parquet_file = spark.read.parquet(file_name)
 
 # Write the DataFrame to a CSV file with tab delimiter
 output_directory = 'output'
-parquet_file.coalesce(1).write.csv(output_directory, sep='\t', header=True)
+parquet_file.write.csv(output_directory, sep='\t', header=True)
